@@ -8,7 +8,7 @@ export default function ProfileCard() {
           alt="..."
         />
         <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-          PARKY CHOW
+          Bryan Tran
         </h5>
         <span className="text-sm text-gray-500 dark:text-gray-400">
           Freelancer
