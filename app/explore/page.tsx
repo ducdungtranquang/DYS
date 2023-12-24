@@ -1,10 +1,14 @@
 "use client";
 import DraggableItem from "@/components/elements/DragableItem";
 import { Data, ItemPage } from "@/models/type";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DragAndDrop } from "@/components/elements/DragAndDrop";
 
 const ExplorePage: React.FC = () => {
+  const isClient = typeof window === "object";
+  const [windowWidth, setWindowWidth] = useState<number>(
+    isClient ? window.innerWidth : 0
+  );
   const [items, setItems] = useState<Data[]>([
     {
       id: 1,
@@ -65,6 +69,25 @@ const ExplorePage: React.FC = () => {
     (e.target as HTMLElement).style.opacity = ".65";
     (e.target as HTMLElement).style.cursor = "move";
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    // Kiểm tra kích thước màn hình và hiển thị alert nếu dưới 860px.
+    if (windowWidth < 860) {
+      alert("Không được truy cập do màn hình không đáp ứng yêu cầu");
+    }
+  }, [windowWidth]);
 
   return (
     <div className="py-[100px]">
