@@ -19,7 +19,7 @@ const config: Config = {
       },
       marginLeft: {
         // "full": "520px"
-      }
+      },
     },
   },
   plugins: [],

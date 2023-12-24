@@ -15,8 +15,8 @@ export const DragAndDrop: React.FC<DragAndDropType> = ({ data }) => {
     useDragAndDrop(data);
 
   return (
-    <div className="p-4 sm:ml-96 background">
-      <div className="p-4 border-2 border-black border-dashed rounded-lg dark:border-gray-700 w-1/2 mx-auto">
+    <div className="p-4 lg:ml-96 background h-full sm:ml-64">
+      <div className="p-4 border-2 border-black border-dashed rounded-lg dark:border-gray-700 xl:w-2/3 mx-auto my-auto transform-50">
         <div className="grid">
           {typesHero.map((container, i) => (
             <ContainerCards
